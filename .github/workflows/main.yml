@@ -1,14 +1,14 @@
 name: generate animation
 
 on:
-  # 每 24 小时自动运行一次
+  # 每天 00:00 运行一次
   schedule:
-    - cron: "0 */24 * * *" 
+    - cron: "0 0 * * *"
   
   # 允许手动运行
   workflow_dispatch:
   
-  # 在 master 分支 push 时运行
+  # 在 main 分支 push 时运行
   push:
     branches:
       - main
@@ -23,7 +23,7 @@ jobs:
     steps:
       # 生成 GitHub 贡献蛇形动画（带动画效果）
       - name: generate-snake-game-from-github-contribution-grid
-  			uses: Platane/snk@v3.3.0
+        uses: Platane/snk@v3.3.0
         with:
           github_user_name: "phyang-zero"
           outputs: |
